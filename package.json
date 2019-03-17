@@ -1,0 +1,52 @@
+{
+  "name": "miniserve",
+  "version": "0.2.0",
+  "description": "a small microservice controller and client",
+  "main": "index.js",
+  "author": "Bree Newfile",
+  "license": "MIT",
+  "scripts": {
+    "build": "pack build",
+    "test": "mocha --require ts-node/register test/**/*.spec.ts",
+    "patch": "yarn build && yarn publish --patch pkg",
+    "minor": "yarn build && yarn publish --minor pkg",
+    "major": "yarn build && yarn publish --major pkg",
+    "pretty": "yarn prettier --no-semi --single-quote --write src/**/*"
+  },
+  "dependencies": {
+    "ws": "^6.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.3",
+    "@babel/plugin-proposal-class-properties": "^7.3.3",
+    "@babel/plugin-proposal-private-methods": "^7.3.2",
+    "@babel/plugin-transform-typescript": "^7.3.2",
+    "@babel/preset-env": "^7.3.1",
+    "@pika/pack": "^0.3.2",
+    "@pika/plugin-build-node": "^0.3.11",
+    "@pika/plugin-build-types": "^0.3.11",
+    "@pika/plugin-standard-pkg": "^0.3.11",
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^11.11.3",
+    "@types/ws": "^6.0.1",
+    "chai": "^4.2.0",
+    "mocha": "^6.0.0",
+    "prettier": "^1.16.4",
+    "ts-node": "^8.0.2",
+    "typescript": "^3.3.3"
+  },
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-standard-pkg"
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-build-types"
+      ]
+    ]
+  }
+}
